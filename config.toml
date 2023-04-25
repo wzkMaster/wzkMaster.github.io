@@ -4,16 +4,21 @@ title = "wzkMaster's Blogs"
 theme = 'paper'
 
 [[menu.main]]
+name = "Blogs"
+url = "/blogs/"
+
+[[menu.main]]
 name = "About"
 url = "/about/"
 
 [[menu.main]]
-name = "Contact"
-url = "/contact/"
+name = "Projects"
+url = "/projects/"
 
 [params]
-  github = "wzkMaster"
+  color = "linen"
 
+  github = "wzkMaster"
   name = "wzkMaster"
   bio = "一个前端开发工程师"
   avatar = "https://avatars.githubusercontent.com/u/56303938?s=400&u=16c19c4347e2cef53271c43bd458c6cce4ceac69&v=4"
