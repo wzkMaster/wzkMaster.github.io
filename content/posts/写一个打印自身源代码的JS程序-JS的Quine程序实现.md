@@ -1,6 +1,6 @@
 ---
 title: "写一个打印自身源代码的JS程序-JS的Quine程序实现"
-date: 2023-04-29
+date: 2023-04-27
 comments: true
 ---
 
