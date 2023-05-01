@@ -1,6 +1,8 @@
 ---
 title: "我的项目"
+menu: "main"
 ---
+
 - [信管求生指南](https://wzkmaster.github.io/WHU-SIM-Life-Saver)
 
 一份写给WHU信管院同学的学习指南，包括课程资料清单和学长学姐的经验分享。目前还未整理完成。

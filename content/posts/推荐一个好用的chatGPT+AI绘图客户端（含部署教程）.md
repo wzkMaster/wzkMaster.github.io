@@ -2,6 +2,7 @@
 title: "推荐一个好用的chatGPT+Stable Diffusion客户端（含部署教程）"
 date: 2023-04-30
 comments: true
+tags: ["ChatGPT", "开源项目推荐"]
 ---
 
 现在许多人的工作生活里可能都离不开 ChatGPT 了。简单的翻译、文本生成、代码编写的任务都可以让它辅助完成，这样我们能够把精力放在更具有创造力的事情上。
