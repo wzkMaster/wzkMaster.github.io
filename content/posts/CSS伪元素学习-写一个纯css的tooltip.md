@@ -2,6 +2,7 @@
 title: "CSS伪元素学习-写一个纯css的tooltip"
 date: 2022-03-06
 comments: true
+tags: ["CSS"]
 ---
 
 ## 伪元素是什么

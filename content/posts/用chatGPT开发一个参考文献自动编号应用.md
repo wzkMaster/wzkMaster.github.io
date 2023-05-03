@@ -1,7 +1,8 @@
 ---
-title: "用chatGPT开发一个参考文献自动编号应用"
+title: "用ChatGPT开发一个参考文献自动编号应用"
 date: 2023-04-25
 comments: true
+tags: ["ChatGPT"]
 ---
 
 ## 背景介绍
