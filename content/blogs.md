@@ -1,5 +1,5 @@
 ---
-title: "博客列表"
+title: "分类"
 menu: "main"
 ---
 
