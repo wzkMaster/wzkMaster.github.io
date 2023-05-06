@@ -14,15 +14,12 @@ menu: "main"
 - [Teach Yourself Computer Science](https://teachyourselfcs.com/)
 
 ## 正在学
-- [Three.js Journey](https://threejs-journey.com/)
+- [**Three.js Journey**](https://threejs-journey.com/)
 - [Interactive Linear Algebra](https://textbooks.math.gatech.edu/ila/)
-- [Interactive Computational Thinking](https://computationalthinking.mit.edu/Fall22/)
-- [Operating System: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
-- [Web 协议详解与抓包实战](https://time.geekbang.org/course/intro/100026801?tab=catalog)
-- [D3.js In Action](https://www.manning.com/books/d3js-in-action-third-edition)
-- CSS揭秘
-- 前端架构师 - 侯策
-  
+- **[Operating System: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)**
+- **[Web 协议详解与抓包实战](https://time.geekbang.org/course/intro/100026801?tab=catalog)**
+- **CSS揭秘**
+- **前端架构师 - 侯策**
 ## 学过的
 
 ### 书籍
@@ -139,3 +136,23 @@ menu: "main"
 - React 设计原理
 - JavaScript 设计模式与开发实践
 - [JavaScript Allongé](https://leanpub.com/javascriptallongesix/read)
+
+### 想看的
+
+- Model Thinking
+
+- Deep Learning
+
+- [Introduction to Computational Thinking](https://computationalthinking.mit.edu/Fall22/)
+
+- [pwn.college](https://dojo.pwn.college/)
+
+- [Seeing Theory](https://seeing-theory.brown.edu/#firstPage)
+
+- [程序员技术指北](https://www.imooc.com/read/27)
+
+- **Algrithms**
+
+- [D3.js In Action](https://www.manning.com/books/d3js-in-action-third-edition)
+- **[跟月影学可视化](https://time.geekbang.org/column/intro/100053801?tab=catalog)**
+- **[AI 大模型之美](https://time.geekbang.org/column/intro/100541001?tab=catalog)**
