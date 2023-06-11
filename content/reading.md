@@ -3,6 +3,8 @@ title: "阅读"
 menu: "main"
 ---
 
+这里整理了本人正在阅读、想要阅读、曾经阅读和平日用于参考的技术书籍。
+
 ## 用于参考的
 - [ES6 入门教程](https://es6.ruanyifeng.com/)
 - [现代 JavaScript 教程](https://zh.javascript.info/)
