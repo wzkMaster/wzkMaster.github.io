@@ -5,7 +5,7 @@ menu: "main"
 
 ## CSS
 
-- [用CSS实现各种奇奇怪怪的边框](/posts/用css实现各种奇奇怪怪的边框)
+- [利用 CSS 实现半透明边框和多重边框](/posts/利用css实现半透明边框和多重边框)
 - [实现一个会动的渐变边框](/posts/实现一个会动的渐变边框)
 - [让HTML网页打印自己的源代码-HTML的Quine程序实现](/posts/让html网页打印自己的源代码-html的quine程序实现)
 - [自定义HTML列表符号样式的几种方法](/posts/自定义html列表符号样式的几种方法)

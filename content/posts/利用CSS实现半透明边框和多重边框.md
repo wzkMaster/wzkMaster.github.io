@@ -1,5 +1,5 @@
 ---
-title: "用CSS实现各种奇奇怪怪的边框"
+title: "利用 CSS 实现半透明边框和多重边框"
 date: 2023-06-11
 comments: true
 tags: ["CSS"]
