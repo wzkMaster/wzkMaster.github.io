@@ -4,7 +4,7 @@ mainSections = ["post"]
 rssFullContent = true
 
 [footer]
-since = 2020
+since = 2022
 customText = ""
 
 [dateFormat]
@@ -12,20 +12,20 @@ published = "Jan 02, 2006"
 lastUpdated = "Jan 02, 2006 15:04 MST"
 
 [sidebar]
-emoji = "🍥"
-subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+emoji = "🥑"
+subtitle = "前端开发工程师@杭州"
 
 [sidebar.avatar]
 enabled = true
 local = true
-src = "img/avatar.png"
+src = "头像.jpeg"
 
 [article]
 math = false
-readingTime = true
+readingTime = false
 
 [article.license]
-enabled = true
+enabled = false
 default = "Licensed under CC BY-NC-SA 4.0"
 
 ## Widgets

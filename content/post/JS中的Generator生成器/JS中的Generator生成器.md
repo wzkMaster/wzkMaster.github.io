@@ -3,9 +3,10 @@ title: "深入解析 JavaScript 的 Generator 生成器"
 date: 2023-06-07
 comments: true
 tags: ["JavaScript"]
+description: 本文讲解了JS生成器的概念和应用场景。生成器是一个可以暂停和恢复执行的函数。利用生成器我们可以很方便地实现自定义的可迭代对象、状态机、惰性计算等，并且还能用它来简化我们的异步操作代码。
 ---
 
-生成器（Generator）是 ES6 中引入的语言特性，是一个可以暂停和恢复执行的函数。利用生成器我们可以很方便地实现自定义的可迭代对象（Iterable）、状态机（state machine）、惰性计算（lazy evaluation）等，并且还能用它来简化我们的异步操作代码，这些在文章中都会有具体的例子介绍。
+生成器（Generator）是 ES6 中引入的语言特性，其本质是一个可以暂停和恢复执行的函数。利用生成器我们可以很方便地实现自定义的可迭代对象（Iterable）、状态机（state machine）、惰性计算（lazy evaluation）等，并且还能用它来简化我们的异步操作代码，这些在文章中都会有具体的例子介绍。
 
 生成器是一类特殊的迭代器（Iterator）。所以要了解生成器，首先我们要学习迭代器的概念。
 
@@ -14,11 +15,11 @@ tags: ["JavaScript"]
 简单地说，迭代器就是实现了`next()`方法的一类特殊的对象。这个`next()`方法的返回值是一个对象，包含了`value`和`done`两个属性。例如：
 
 ```js
-someIterator.next() 
+someIterator.next();
 // { value: 'something', done: false }
-someIterator.next()
+someIterator.next();
 // { value: 'anotherThing', done: false }
-someIterator.next()
+someIterator.next();
 // { value: undefined, done: true }
 ```
 
@@ -41,21 +42,20 @@ class ListNode {
 class LinkedList {
   constructor() {
     this.head = null;
-    this.length = 0;  
+    this.length = 0;
   }
-  
   append(val) {
     const newNode = new ListNode(val);
-    if(!this.head) {
+    if (!this.head) {
       this.head = newNode;
     } else {
-      let current = this.head;  
-      while(current.next) {
-        current = current.next;   
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
       }
       current.next = newNode;
     }
-    this.length++;  
+    this.length++;
   }
 }
 ```
@@ -64,16 +64,16 @@ class LinkedList {
 
 ```js
 // 创建一个链表，往其中添加了1，2，3三个元素
-const linkedList = new LinkedList()
-linkedList.append(1)
-linkedList.append(2)
-linkedList.append(3)
+const linkedList = new LinkedList();
+linkedList.append(1);
+linkedList.append(2);
+linkedList.append(3);
 
 // 对链表进行遍历
-let node = linkedList.head
+let node = linkedList.head;
 while (node) {
-  console.log(node.val)
-  node = node.next
+  console.log(node.val);
+  node = node.next;
 }
 // 依次打印1, 2, 3
 ```
@@ -81,18 +81,18 @@ while (node) {
 我们希望可以使用这个链表结构的人可以用一种更加自然的方式来进行遍历，比如遍历数组时用的`for...of`循环，减少开发时的心智负担。这个时候迭代器就可以派上用场了。
 
 ```js
-// 通过 Iterator 接口实现遍历 
+// 通过 Iterator 接口实现遍历
 [Symbol.iterator]() {
-  let current = this.head;
-  return {
-    next: () => {
-      if (current) {
-        current = current.next;
-        return { value: current.val, done: false };
-      }
-      return { done: true }; 
-    }
-  }  
+  let current = this.head;
+  return {
+    next: () => {
+      if (current) {
+        current = current.next;
+        return { value: current.val, done: false };
+      }
+      return { done: true };
+    }
+  }  
 }
 ```
 
@@ -102,7 +102,7 @@ while (node) {
 
 ```js
 for (const node of linkedList) {
-  console.log(node)
+  console.log(node);
 }
 // 依次打印1, 2, 3
 ```
@@ -110,7 +110,7 @@ for (const node of linkedList) {
 不仅如此，我们还可以使用扩展运算符来一次性获取链表中的所有元素并转换为数组。
 
 ```js
-console.log([...linkedList])
+console.log([...linkedList]);
 // [1, 2, 3]
 ```
 
@@ -140,10 +140,10 @@ genObject.next();
 
 ```js
 function* loggerator() {
-  console.log('开始执行');
-  yield '暂停';
-  console.log('继续执行');
-  return '停止';
+  console.log("开始执行");
+  yield "暂停";
+  console.log("继续执行");
+  return "停止";
 }
 
 let logger = loggerator();
@@ -161,19 +161,17 @@ logger.next(); // 继续执行
 
 ```js
 function* abcs() {
-  yield 'a';
-  yield 'b';
-  yield 'c';
+  yield "a";
+  yield "b";
+  yield "c";
 }
 
 for (let letter of abcs()) {
   console.log(letter.toUpperCase());
 }
-// A
-// B
-// C
+// 依次打印 A, B, C
 
-[...abcs()] // [ "a", "b", "c" ]
+[...abcs()]; // [ "a", "b", "c" ]
 ```
 
 ### 接收输入
@@ -185,14 +183,14 @@ function* listener() {
   console.log("你说，我在听...");
   while (true) {
     let msg = yield;
-    console.log('我听到你说:', msg);
+    console.log("我听到你说:", msg);
   }
 }
 
 let l = listener();
-l.next('在吗？'); // 你说，我在听...
-l.next('你在吗？'); // 我听到你说: 你在吗？
-l.next('芜湖！'); // 我听到你说: 芜湖！
+l.next("在吗？"); // 你说，我在听...
+l.next("你在吗？"); // 我听到你说: 你在吗？
+l.next("芜湖！"); // 我听到你说: 芜湖！
 ```
 
 第一个`next()`方法中传入的值会被忽略，这是因为此时函数才刚刚开始执行，还没有遇到任何`yield`可以接收输入值，函数会在`let msg = yield`处停止执行，因为遇到了`yield`关键字。
@@ -210,16 +208,15 @@ l.next('芜湖！'); // 我听到你说: 芜湖！
 ```js
 class TreeNode {
   constructor(value) {
-    this.value = value
-    this.leftChild = null
-    this.rightChild = null
-  }
+    this.value = value;
+    this.leftChild = null;
+    this.rightChild = null;
+  } // 中序遍历函数，通过yield*实现递归
 
-  // 中序遍历函数，通过yield*实现递归
   *[Symbol.iterator]() {
-    yield this.value
-    if (this.leftChild) yield* this.leftChild
-    if (this.rightChild) yield* this.rightChild
+    yield this.value;
+    if (this.leftChild) yield* this.leftChild;
+    if (this.rightChild) yield* this.rightChild;
   }
 }
 ```
@@ -227,19 +224,19 @@ class TreeNode {
 我们构造一个二叉树实例来验证一下我们的中序遍历方法。
 
 ```js
-const tree = new TreeNode('root')
-tree.leftChild = new TreeNode("branch-left")
-tree.rightChild = new TreeNode("branch-right")
-tree.leftChild.leftChild = new TreeNode("leaf-L1")
-tree.leftChild.rightChild = new TreeNode("leaf-L2")
-tree.rightChild.leftChild = new TreeNode("leaf-R1")
-//              root
-//             /    \
-//    branch-left  branch-right
-//      /    \         /
+const tree = new TreeNode("root");
+tree.leftChild = new TreeNode("branch-left");
+tree.rightChild = new TreeNode("branch-right");
+tree.leftChild.leftChild = new TreeNode("leaf-L1");
+tree.leftChild.rightChild = new TreeNode("leaf-L2");
+tree.rightChild.leftChild = new TreeNode("leaf-R1");
+//              root
+//             /    \
+//    branch-left  branch-right
+//      /    \         /
 // leaf-L1  leaf-L2  leaf-R1
 
-console.log([...tree])
+console.log([...tree]);
 // ['root', 'branch left', 'leaf L1', 'leaf L2', 'branch right', 'leaf R1']
 ```
 
@@ -251,45 +248,43 @@ console.log([...tree])
 
 ```js
 async function* count() {
-  let i = 0;
-	// 每秒产生1个新的数字
-  while (true) {
-    // 等待1秒钟
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    yield i;
-    i++;
+  let i = 0;
+  // 每秒产生1个新的数字
+  while (true) {
+    // 等待1秒钟
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    yield i;
+    i++;
   }
 }
-
+​
 (async () => {
-  let countGenerator = count();
-  console.log(await countGenerator.next().value);  // 1s 后打印 0
-  console.log(await countGenerator.next().value);	// 1s 后打印 1
-  console.log(await countGenerator.next().value);	// 1s 后打印 2
+  let countGenerator = count();
+  console.log(await countGenerator.next().value);  // 1s 后打印 0
+  console.log(await countGenerator.next().value); // 1s 后打印 1
+  console.log(await countGenerator.next().value); // 1s 后打印 2
 })();
 ```
 
 在这个例子中，我们声明了一个`count`函数，其作用是每秒生成一个数字，从 0 开始，每次加 1。由于生成器函数是异步的，所以调用`countGenerator.next()`得到的会是一个`Promise`，需要通过`await`来获取最终生成的值。
 
-除了普通的同步迭代器（也就是上面讲的`[Symbol.iterator]`）之外，JavaScript中的对象还可以声明`[Symbol.asyncIterator]`属性。声明了`asyncIterator`的对象可以用`for await...of`循环进行遍历。
+除了普通的同步迭代器（也就是上面讲的`[Symbol.iterator]`）之外，JavaScript 中的对象还可以声明`[Symbol.asyncIterator]`属性。声明了`asyncIterator`的对象可以用`for await...of`循环进行遍历。
 
 ```js
 const range = {
-  from: 1,
-  to: 5,
-  async *[Symbol.asyncIterator]() {
-    // 生成从 from 到 to 的数值
-    for(const value = this.from; value <= this.to; value++) {
-      // 在 value 之间暂停一会儿，等待一些东西
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      yield value;
-    }
+  from: 1,
+  to: 5,
+  async *[Symbol.asyncIterator]() {
+    // 生成从 from 到 to 的数值
+    for(const value = this.from; value <= this.to;="" value++)="" {=""  ="" 在="" value="" 之间暂停一会儿，等待一些东西=""  await="" new="" Promise(resolve=""> setTimeout(resolve, 1000));
+      yield value;
+    }
   }
 };
 
 (async () => {
-  for await (let value of range) {
-    console.log(value); // 打印 1，然后 2，然后 3，然后 4，然后 5。每个 log 之间会有1s延迟。
+  for await (let value of range) {
+    console.log(value); // 打印 1，然后 2，然后 3，然后 4，然后 5。每个 log 之间会有1s延迟。
   }
 })();
 ```
@@ -302,84 +297,46 @@ const range = {
 
 生成器可以帮我们更方便地进行序列的生成。例如我们想要开发一个扑克游戏，需要一个包含了所有扑克牌数值的序列，如果一一列举会非常麻烦，用生成器就可以简化我们的工作。
 
-```js
-cards = ({
-  suits: ["♣️", "♦️", "♥️", "♠️"],
-  court: ["J", "Q", "K", "A"],
+````js
+const cards = ({
+  suits: ["♣️", "♦️", "♥️", "♠️"],
+  court: ["J", "Q", "K", "A"],
   [Symbol.iterator]: function* () {
-    for (let suit of this.suits) {
-      for (let i = 2; i <= 10; i++) yield suit + i;
-      for (let c of this.court) yield suit + c;
-    }
+    for (let suit of this.suits) {
+      for (let i = 2; i <= 10;="" i++)="" yield="" suit="" +="" i;=""  =""  for="" (let="" c="" of="" this.court)="" c;="" }="" })="" ```="" 我们在`cards`的`[Symbol.iterator]`中对四种花色进行遍历，对于每一种花色，我们首先从2数到10，并数字字符与花色的字符进行拼接，从而生成该花色对应的所有数字牌，共九张；随后再遍历四个特殊的字母字符`"J",="" "Q",="" "K",="" "A"`，与花色的字符进行拼接，生成剩余的四张牌。="" ```js="" console.log([...cards])="" ['♣️2',="" '♣️3',="" '♣️4',="" '♣️5',="" '♣️6',="" '♣️7',="" '♣️8',="" '♣️9',="" '♣️10',="" '♣️J',="" '♣️Q',="" '♣️K',="" '♣️A',="" '♦️2',="" '♦️3',="" '♦️4',="" '♦️5',="" '♦️6',="" '♦️7',="" '♦️8',="" '♦️9',="" '♦️10',="" '♦️J',="" '♦️Q',="" '♦️K',="" '♦️A',="" '♥️2',="" '♥️3',="" '♥️4',="" '♥️5',="" '♥️6',="" '♥️7',="" '♥️8',="" '♥️9',="" '♥️10',="" '♥️J',="" '♥️Q',="" '♥️K',="" '♥️A',="" '♠️2',="" '♠️3',="" '♠️4',="" '♠️5',="" '♠️6',="" '♠️7',="" '♠️8',="" '♠️9',="" '♠️10',="" '♠️J',="" '♠️Q',="" '♠️K',="" '♠️A']="" 使用扩展运算符就可以一次性取出`cards`中的所有扑克牌数值并转化为数组了，这样的写法比直接一一列举方便了很多。="" ###="" 惰性计算="" 因为生成器函数执行时会在`yield`处停止，所以即便是`while(true)`这样的死循环也不会导致程序卡死，我们可以写一个不断生成随机数的`generateRandomNumbers`函数。="" function*="" generateRandomNumbers(count)="" {="" i="0;" <="" count;=""  yield="" Math.random()="" 惰性计算的含义是在要用到的时候才进行求值。以上面的`generateRandomNumbers`函数为例，如果我们采用普通的函数写法，调用函数时JS引擎会一次性把所有随机数都计算出来，如果传入的`count`过大的话，容易造成应用卡顿。="" 如果采用生成器的写法，我们可以一次从生成器中取出一个随机数，这样每次只进行了一次随机数生成的操作，避免了过度的性能消耗。="" 状态机="" 利用生成器可以接受输入的特性，我们可以通过生成器函数来构建一个状态机。="" bankAccount()=""  let="" balance="0;"  while="" (balance="">= 0) {
+    balance += yield balance;
   }
-})
-```
-
-我们在`cards`的`[Symbol.iterator]`中对四种花色进行遍历，对于每一种花色，我们首先从2数到10，并数字字符与花色的字符进行拼接，从而生成该花色对应的所有数字牌，共九张；随后再遍历四个特殊的字母字符`"J", "Q", "K", "A"`，与花色的字符进行拼接，生成剩余的四张牌。
-
-```js
-console.log([...cards])
-```
-
-使用扩展运算符就可以一次性取出`cards`中的所有扑克牌数值并转化为数组了，这样的写法比直接一一列举方便了很多。
-
-### 惰性计算
-
-因为生成器函数执行时会在`yield`处停止，所以即便是`while(true)`这样的死循环也不会导致程序卡死，我们可以写一个不断生成随机数的`generateRandomNumbers`函数。
-
-```js
-function* generateRandomNumbers(count) {
-  for (let i = 0; i < count; i++) {
-    yield Math.random()
-  }
-}
-```
-
-惰性计算的含义是在要用到的时候才进行求值。以上面的`generateRandomNumbers`函数为例，如果我们采用普通的函数写法，调用函数时JS引擎会一次性把所有随机数都计算出来，如果传入的`count`过大的话，容易造成应用卡顿。
-
-如果采用生成器的写法，我们可以一次从生成器中取出一个随机数，这样每次只进行了一次随机数生成的操作，避免了过度的性能消耗。
-
-### 状态机
-
-利用生成器可以接受输入的特性，我们可以通过生成器函数来构建一个状态机。
-
-```js
-function* bankAccount() {
-  let balance = 0;
-  while (balance >= 0) {
-    balance += yield balance;
-  }
-  return '你破产了！';
+  return '你破产了！';
 }
 
 let account = bankAccount();
-account.next();    // { value: 0, done: false }
-account.next(50);  // { value: 50, done: false }
+account.next();    // { value: 0, done: false }
+account.next(50);  // { value: 50, done: false }
 account.next(-10); // { value: 40, done: false }
 account.next(-60); // { value: "你破产了！", done: true }
-```
+````
 
-这里我们构造了一个银行账户的生成器，一开始用户的余额是0，我们可以通过在`account.next()`传入账户变动的数值来改变余额。如果余额变成了负数，就结束函数执行并告知用户破产。
+这里我们构造了一个银行账户的生成器，一开始用户的余额是 0，我们可以通过在`account.next()`传入账户变动的数值来改变余额。如果余额变成了负数，就结束函数执行并告知用户破产。
 
 ### 简化分页请求
 
 目前，有很多在线服务都是发送的分页的数据（paginated data）。例如，当我们需要一个用户列表时，一个请求只返回一个预设数量的用户（例如 100 个用户）—— “一页”，并提供了指向下一页的 URL。
 
-以[星球大战API](https://swapi.dev/api/)为例，其中的[`planets`API](https://swapi.dev/api/planets)中包含了星球大战中的各个行星的信息。这是一个分页的API，每次请求返回 60 个星球的数据，包含在 `results` 字段中，下一页的链接在`next`字段中。
+以[星球大战 API](https://swapi.dev/api/)为例，其中的[`planets`API](https://swapi.dev/api/planets)中包含了星球大战中的各个行星的信息。这是一个分页的 API，每次请求返回 60 个星球的数据，包含在 `results` 字段中，下一页的链接在`next`字段中。
 
-<img src="/Users/wuzikang/Projects/awesome/docs/source/image-20230607214000904.png" alt="image-20230607214000904" style="zoom:50%;" />
+![image-20230607214000904.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aab7975beabd4ba0990fbbbbe229827d~tplv-k3u1fbpfcp-watermark.image?)
 
 直接请求这个接口来迭代地获取每一页的行星数据是非常麻烦的。所以我们希望对这个接口进行封装，创建一个函数 `fetchPlanets()`，我们每次调用这个函数就可以获得下一页的 Planets 数据，并且可以使用 `for await..of` 来迭代获取所有行星数据。其代码如下所示：
 
 ```js
 async function* fetchPlanets() {
-    let nextUrl = `https://swapi.dev/api/planets`;
-    while (nextUrl) {
-      const response = await fetch(nextUrl);
-      const data = await response.json();
-      nextUrl = data.next;
-      yield data.results;
-    }
+  let nextUrl = `https://swapi.dev/api/planets`;
+  while (nextUrl) {
+    const response = await fetch(nextUrl);
+    const data = await response.json();
+    nextUrl = data.next;
+    yield data.results;
+  }
 }
 ```
 
@@ -396,13 +353,13 @@ const planetPages = fetchPlanets();
 
 代码运行的效果如图所示：
 
-![ezgif-5-eb1465aed6](/Users/wuzikang/Projects/awesome/docs/source/ezgif-5-eb1465aed6.gif)
+![ezgif-5-eb1465aed6.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/152fd54784de451bba18d1a5aec025ce~tplv-k3u1fbpfcp-watermark.image?)
 
 ## 总结
 
 > 本文中的例子和思路参考了 Anjana Vakil 的[演讲](https://www.youtube.com/watch?v=gu3FfmgkwUc)以及现代 JavaScript 教程中的[相关章节](https://zh.javascript.info/async-iterators-generators)
 
-本文讲解了JavaScript中生成器的概念和相关应用场景。
+本文讲解了 JavaScript 中生成器的概念和相关应用场景。
 
 - 生成器是一个函数，调用生成器函数可以得到一个生成器对象，生成器对象是一种迭代器（Iterator）。可以用扩展运算符`...`来一次性获取所有生成值，也可以用`for...of`循环来遍历生成器生成的值。
 - 生成器可以通过在`next()`函数调用时传递参数来接受输入。
@@ -410,4 +367,5 @@ const planetPages = fetchPlanets();
 - 生成器可以是异步函数，异步生成器对象可以用`for await...of`循环进行遍历。
 - 利用生成器可以实现自定义序列的生成、惰性计算、状态机和异步分页请求的优雅封装。
 
-（本文作者 [wzkMaster](https://juejin.cn/user/721751318997469/posts), 如果有帮助的话欢迎点赞收藏～）
+（本文作者 wzkMaster）
+</=></=>

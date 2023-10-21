@@ -2,9 +2,10 @@
 title: "冷门但好看的VSCode主题推荐"
 date: 2023-06-08
 comments: true
+description: 这篇文章总结了我用过的最舒服的一些颜色主题。
 ---
 
-笔者在使用VSCode进行开发的过程中喜欢没事就逛一逛插件商店里的颜色主题，也看过国内外许多论坛上面的颜色主题推荐，不知不觉已经下载了超过一百个的颜色主题。这篇文章总结了我用过的最舒服的一些颜色主题，供大家参考。
+笔者在使用 VSCode 进行开发的过程中喜欢没事就逛一逛插件商店里的颜色主题，也看过国内外许多论坛上面的颜色主题推荐，不知不觉已经下载了超过一百个的颜色主题。这篇文章总结了我用过的最舒服的一些颜色主题，供大家参考。
 
 ### [Ayu](https://marketplace.visualstudio.com/items?itemName=teabyii.ayu)
 
@@ -26,7 +27,7 @@ comments: true
 
 ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/377f025e2712431e9b353e31f97999b7~tplv-k3u1fbpfcp-watermark.image?)
 
-Catppuccin是一款开源的颜色主题，旨在打造低对比度和高对比度之间的中间路径，其颜色以暖色调为主，色彩很丰富。Catppucin Theme 是 Catppuccin 的 VSCode 主题，包含了四种色调变种，涵盖了浅色和深色模式。
+Catppuccin 是一款开源的颜色主题，旨在打造低对比度和高对比度之间的中间路径，其颜色以暖色调为主，色彩很丰富。Catppucin Theme 是 Catppuccin 的 VSCode 主题，包含了四种色调变种，涵盖了浅色和深色模式。
 
 ### [Monokai](https://monokai.pro/vscode)
 
@@ -40,13 +41,13 @@ Monokai 是一个专为代码编辑器设计的配色方案和自定义用户界
 
 ![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9528eda2e24243299448f59b2438156a~tplv-k3u1fbpfcp-watermark.image?)
 
-Noctis是一个温和且对比度平衡的浅色与深色主题的集合。Noctis主题的设计目标有以下两个：减少眼睛的压力，缓解眼睛疲劳；给主题颜色赋予语义。Noctis有11个版本，包括8个深色主题和3个浅色主题。这里展示出了两个我个人觉得比较好看的主题色调，其他色调大家可以下载后自行体验或者到插件详情页面预览。
+Noctis 是一个温和且对比度平衡的浅色与深色主题的集合。Noctis 主题的设计目标有以下两个：减少眼睛的压力，缓解眼睛疲劳；给主题颜色赋予语义。Noctis 有 11 个版本，包括 8 个深色主题和 3 个浅色主题。这里展示出了两个我个人觉得比较好看的主题色调，其他色调大家可以下载后自行体验或者到插件详情页面预览。
 
 ### [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
 
 ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/79f8358b096e4ccb84043c5097a469cb~tplv-k3u1fbpfcp-watermark.image?)
 
-One Dark Pro 是 Atom 编辑器的默认深色主题，在开发者社区中广受好评，是VSCode中下载量最高的颜色主题。颜色主要以黑色、淡灰色和鲜艳有活力的色彩为主，同时也包含白色。在突出最重要的信息的同时又不失其流畅的易读性。
+One Dark Pro 是 Atom 编辑器的默认深色主题，在开发者社区中广受好评，是 VSCode 中下载量最高的颜色主题。颜色主要以黑色、淡灰色和鲜艳有活力的色彩为主，同时也包含白色。在突出最重要的信息的同时又不失其流畅的易读性。
 
 ### [Atom One Light](https://marketplace.visualstudio.com/items?itemName=akamud.vscode-theme-onelight)
 
