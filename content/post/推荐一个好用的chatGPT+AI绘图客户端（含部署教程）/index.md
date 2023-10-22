@@ -3,6 +3,7 @@ title: "推荐一个好用的chatGPT+Stable Diffusion客户端（含部署教程
 date: 2023-04-30
 comments: true
 tags: ["ChatGPT"]
+description: 本文介绍了一个非常好用的开源 ChatGPT 客户端，它的交互和 ChatGPT 的官方网页非常接近，而且还提供了参数配置和AI绘画模型调用的功能。文中还讲解了将项目部署到 Vercel 的方法。
 ---
 
 现在许多人的工作生活里可能都离不开 ChatGPT 了。简单的翻译、文本生成、代码编写的任务都可以让它辅助完成，这样我们能够把精力放在更具有创造力的事情上。

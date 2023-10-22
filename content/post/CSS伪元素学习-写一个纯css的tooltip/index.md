@@ -3,6 +3,7 @@ title: "CSS伪元素学习-写一个纯css的tooltip"
 date: 2022-03-06
 comments: true
 tags: ["CSS"]
+description: 本文讲解了CSS伪元素的两种常见适用场景，并结合代码展示了伪元素的基本使用方法。文章后半部分详细地讲解了如何用伪元素实现一个纯css的tooltip。
 ---
 
 ## 伪元素是什么

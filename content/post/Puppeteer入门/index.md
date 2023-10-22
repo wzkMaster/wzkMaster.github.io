@@ -3,7 +3,7 @@ title: "Puppeteer 实战教程 - 爬取 Github 高星项目数据"
 date: 2023-07-14
 comments: true
 tags: ["JavaScript"]
-description: 文章用十个例子比较了 React 和 Svelte 两个框架，包括属性传递、状态管理、条件渲染、异步渲染等。通过阅读这篇文章，你可以了解 Svelte 的基本用法和渲染原理。
+description: 本文通过爬取 Github 高星数据项目讲解了 Puppeteer 的入门知识，包括浏览器启动、页面访问、页面数据提取、页面交互等，利用这些知识你可以用 Puppeteer 自动化你的日常工作。
 image: puppeteer.png
 ---
 

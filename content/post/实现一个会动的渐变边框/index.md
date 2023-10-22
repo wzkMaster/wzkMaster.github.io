@@ -3,6 +3,7 @@ title: "实现一个会动的渐变边框"
 date: 2023-03-30
 comments: true
 tags: ["CSS", "SVG"]
+description: 本文手把手地教你用SVG绘制一个动态的渐变虚线边框，利用这个方法我们可以实现非常酷炫的边框效果。你将在本文中学到SVG矩形的绘制，SVG渐变和SVG动画的实现。
 ---
 
 现代网页设计中常常会涉及到渐变边框的使用，CSS 的`border-image` 属性也提供了渐变色边框的支持，我们可以在其中传入一个 `linear-gradient` 函数来实现渐变效果。
