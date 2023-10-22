@@ -3,8 +3,6 @@ title: "Core Web Vitals概念讲解及优化方法简述"
 date: 2023-05-03
 comments: true
 readingTime: false
-categories:
-  - 前端工程化
 tags:
   - JavaScript
   - 性能优化
