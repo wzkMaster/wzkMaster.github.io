@@ -2,6 +2,8 @@
 title: "想学的"
 ---
 
+后续计划学习的一些资料，可做资料清单参考。
+
 ## 书和小册
 
 - **[Operating System: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)**
@@ -24,9 +26,15 @@ title: "想学的"
 
   讲软件设计中的思维模型，挺有意思的一本书。
 
+- 重构 - 改善既有代码的设计
+
+- [程序员技术指北](https://www.imooc.com/read/27)
+
+  各种各样的内容都有的一本小册，主要是讲解各类技术的发展趋势和对时事热点新闻的深度分析。
+
 - 深入理解计算机系统
 
-  程序员必读。
+  程序员必读，无须多言。
 
 - React 设计原理
 
@@ -35,10 +43,6 @@ title: "想学的"
 - [JavaScript Allongé](https://leanpub.com/javascriptallongesix/read)
 
   JavaScript 函数式编程书籍，看目录感觉蛮有意思。
-
-- [程序员技术指北](https://www.imooc.com/read/27)
-
-  各种各样的内容都有的一本小册，主要是讲解各类技术的发展趋势和对时事热点新闻的深度分析。
 
 - **[Web 协议详解与抓包实战](https://time.geekbang.org/course/intro/100026801?tab=catalog)**
 
